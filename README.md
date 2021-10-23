@@ -1,7 +1,5 @@
 # orm-express-api
 
-# orm-express-api
-
 This Object Relational Mapping project, using :
 - Postgres 13 for DBSM
 - Express JS for CRUD
