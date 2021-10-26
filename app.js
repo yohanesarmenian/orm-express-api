@@ -5,13 +5,39 @@ const port = 4000
 
 const {Article} = require('./models')
 
-app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+app.set('view engine', 'ejs')
+app.use(express.json())
+
 
 //GET all articles
+// app.get('/articles', (req, res) => {
+//     Article.findAll().then(articles => {
+//         res.status(200).json(articles)
+//     })
+// })
+
+//POST /articles, buat artikel baru
+app.post('/articles', (req, res) => {
+    Article.create({
+        title: req.body.title,
+        body: req.body.body,
+        // approved: true
+    }).then(article => {
+        res.render('Article berhasil dibuat')
+    })
+})
+
+//form create articles
+app.get('/articles/create', (req,res) => {
+    res.render('./articles/create')
+})
+
 app.get('/articles', (req, res) => {
-    Article.findAll().then(articles => {
-        res.status(200).json(articles)
+    Article.findAll()
+    .then(articles => {
+        res.render('./articles/index', {articles
+        })
     })
 })
 
@@ -20,7 +46,8 @@ app.get('/articles/:id', (req, res) => {
     Article.findOne({
         where: { id: req.params.id }
     }).then(article => {
-        res.status(200).json(article)
+        res.render('articles/show', article)
+        // res.status(200).json(article)
     })
 })
 
