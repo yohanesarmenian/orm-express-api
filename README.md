@@ -30,8 +30,9 @@ after install those modules, in project directory, there are some new folder
 
 and from here the database is ready, for this case the name of the database is **database_sequelize**
 
-7. ```px sequelize model:generate --name Article --attributes title:string,body:text,approved:boolean``` this for make the table in  the database
-8. finally you're ready to try it by your self.
+7. ```npx sequelize db:migrate```
+8. ```npx sequelize model:generate --name Article --attributes title:string,body:text,approved:boolean``` this for make the table in  the database
+9. finally you're ready to try it by your self.
 
 # HOW TO RUN THIS PROJECT
 1. clone this project
