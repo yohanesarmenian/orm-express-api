@@ -2,7 +2,7 @@
 
 This Object Relational Mapping project, using :
 - Postgres 13 for DBSM
-- Express JS for CRUD
+- Express JS 
 
 # HOW TO MAKE THIS PROJECT FROM 0
 1. ```npm init -y ``` at your directory project
